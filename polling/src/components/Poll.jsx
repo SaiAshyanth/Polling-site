@@ -26,7 +26,7 @@ const CreatePollPage = () => {
     }
 
     setIsPollStarted(true);
-    navigate('/main');
+    navigate('/main', { state: { question } }); // Pass question as route state
 
     // Here you can implement logic to send the poll data to the server or perform any other actions.
     // For simplicity, we'll just log the data to the console.

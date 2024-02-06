@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './main.css';
 
 const PollApp = () => {
+  const location = useLocation();
+  const question = location.state ? location.state.question : ''; // Extract question from route state
+
   const [options, setOptions] = useState([
     { id: 1, text: 'Option A', votes: 0 },
     { id: 2, text: 'Option B', votes: 0 },
@@ -28,7 +32,7 @@ const PollApp = () => {
 
   return (
     <div className="poll-container">
-      <h1 className='abc'>Enter your votes</h1>
+      <h1 className='abc'>{question}</h1> {/* Display the question */}
       <ul className="options-list">
         {options.map((option) => (
           <li key={option.id}>
