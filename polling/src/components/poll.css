@@ -2,7 +2,7 @@
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #6365bd50;
     
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
   }
   
   h3 {
-    color: #3d10c3;
+    color: #000000;
   }
   
   label {
