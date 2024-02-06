@@ -1,0 +1,43 @@
+.poll-container {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .abc {
+    color: #000282;
+    margin-left: 7px;
+  }
+  
+  .options-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  .def {
+    background-color: #2509b2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-right: 10px;
+  }
+  
+  span {
+    color: #666;
+  }
+  
+  /* Add more styles as needed */
+  
+  
+  /* Add more styles as needed */
