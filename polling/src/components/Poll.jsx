@@ -7,6 +7,7 @@ const CreatePollPage = () => {
   const [options, setOptions] = useState(['', '']);
   const [isPollStarted, setIsPollStarted] = useState(false);
   const navigate = useNavigate();
+
   const handleOptionChange = (index, value) => {
     setOptions((prevOptions) => {
       const newOptions = [...prevOptions];
@@ -26,7 +27,7 @@ const CreatePollPage = () => {
     }
 
     setIsPollStarted(true);
-    navigate('/main', { state: { question } }); // Pass question as route state
+    navigate('/main', { state: { question, options } });
 
     // Here you can implement logic to send the poll data to the server or perform any other actions.
     // For simplicity, we'll just log the data to the console.

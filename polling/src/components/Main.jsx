@@ -4,26 +4,17 @@ import './main.css';
 
 const PollApp = () => {
   const location = useLocation();
-  const question = location.state ? location.state.question : ''; // Extract question from route state
+  const { question, options } = location.state || {};
 
-  const [options, setOptions] = useState([
-    { id: 1, text: 'Option A', votes: 0, selected: false },
-    { id: 2, text: 'Option B', votes: 0, selected: false },
-    { id: 3, text: 'Option C', votes: 0, selected: false },
-  ]);
-
+  const [selectedOption, setSelectedOption] = useState(null); // Track selected option
   const [hasVoted, setHasVoted] = useState(false);
 
-  const handleVote = (optionId) => {
+  const handleVote = (optionId, optionText) => {
     if (!hasVoted) {
-      setOptions((prevOptions) =>
-        prevOptions.map((option) =>
-          option.id === optionId ? { ...option, votes: option.votes + 1, selected: true } : option
-        )
-      );
-      setHasVoted(true);
       // Display a popup message here
-      alert('Thanks for voting!');
+      alert(`Thanks for voting for "${optionText}"!`);
+      setSelectedOption(optionText); // Set selected option
+      setHasVoted(true);
     } else {
       // Display a message indicating that the user has already voted
       alert('You have already voted. Thanks!');
@@ -32,19 +23,21 @@ const PollApp = () => {
 
   return (
     <div className="poll-container">
-      <h1 className='abc'>{question}</h1> {/* Display the question */}
+      <h1 className='abc'>{question}</h1>
+      {hasVoted && selectedOption && <p>Yayyyy!! The winner is "{selectedOption}".</p>}
       <ul className="options-list">
-        {options.map((option) => (
-          <li key={option.id}>
-            <button
-              className={`def ${option.selected ? 'selected' : ''}`}
-              onClick={() => handleVote(option.id)}
-            >
-              {option.text}
-            </button>
-            <span>{option.votes} votes</span>
-          </li>
-        ))}
+        {options &&
+          options.map((option, index) => (
+            <li key={index}>
+              <button
+                className="def"
+                onClick={() => handleVote(index + 1, option)}
+                disabled={hasVoted}
+              >
+                {option}
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   );
